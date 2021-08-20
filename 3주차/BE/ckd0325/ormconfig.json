@@ -1,0 +1,12 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": "3306",
+  "username": "root",
+  "password": "525252",
+  "database": "bulletin_board",
+  "synchronize": false,
+  "logging": true,
+  "keepConnectionAlive": true,
+  "entities": ["dist/**/*.entity{.ts,.js}"]
+}
