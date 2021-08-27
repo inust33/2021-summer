@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import Feed from '../../../utils/Feed';
-
+import { withRouter } from 'react-router-dom';
 const LandingPage = (props) => {
     function onClickHandler (){
         axios.get('/api/user/logout')
@@ -11,12 +11,14 @@ const LandingPage = (props) => {
         })
     }
     return (
-        <div style={{display:'flex', justifyContent:'center',alignContent:'center'}}>
-            LandingPage
-            <button onClick={onClickHandler}>Logout</button>
+        <div>
+            <div style={{display:'flex', justifyContent:'center',alignContent:'center'}}>
+                Home &nbsp;&nbsp;&nbsp;
+                <button onClick={onClickHandler}>Logout</button><br/>
+            </div>
             <Feed></Feed>
         </div>
     );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
