@@ -20,12 +20,7 @@ const store = createStoreWithMiddleware(
 
 
 ReactDOM.render(
-  <Provider
-    /* eslint-disable no-underscore-dangle */
-    store={store}
-      
-  >
-    
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
