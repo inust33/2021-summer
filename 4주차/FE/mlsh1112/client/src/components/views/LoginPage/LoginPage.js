@@ -1,6 +1,9 @@
+import axios from 'axios';
 import React,{useState} from 'react';
-
+import {useDispatch} from 'react-redux'
+import { loginUser } from '../../../_action/user_action';
 const LoginPage = () => {
+    const dispatch = useDispatch()
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
 
@@ -12,6 +15,13 @@ const LoginPage = () => {
     }
     const onSubmitHandler = (e) =>{
         e.preventDefault()
+        let body = {
+            email:email,
+            password:password
+        }
+
+        dispatch(loginUser(body))
+
         
     }
 
