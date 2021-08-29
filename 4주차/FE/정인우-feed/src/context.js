@@ -9,8 +9,8 @@ const ContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
 
     function signIn({email, password}) {
-        const _user = state.Users.find(userinfo => userinfo.email === email.toString() && userinfo.password === password.toString());
-        if (!_user) throw new Error;
+        const _user = state.Users.find(userinfo => (userinfo.email === email) && (userinfo.password === password));
+        if (_user===undefined) throw new Error();
         return _user;
     }
 

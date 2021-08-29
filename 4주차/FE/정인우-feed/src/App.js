@@ -12,7 +12,7 @@ import SignUp from "./Routes/Signup";
 import GlobalStyles from "./Components/Globalstyles";
 
 function App() {
-    const {state, dispatch} = useContext(FeedsContext);
+
     const {user, setUser, login, logout} = useContext(UserContext);
 
 

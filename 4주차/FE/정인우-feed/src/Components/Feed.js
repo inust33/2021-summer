@@ -45,13 +45,17 @@ const Feed = ({id, author, text, date}) => {
                             </form>
                         ) :
                         (<>
-                                <span> {author} </span>
-                                <span>{DateDiff(date) ? DateDiff(date) : date.toLocaleString()}</span>
+
+                                <span>{author} {DateDiff(date) ? DateDiff(date) : date.toLocaleString()}</span>
                                 <span>{text} </span>
                                 {user?.email === author && (
                                     <>
                                         <Button
-                                            onClick={() => dispatch({type: DELETE_Feed, payload: id})}>Delete</Button>
+                                            onClick={() =>{
+                                                if(window.confirm('are you sure you want to delete?')){
+                                                    dispatch({type: DELETE_Feed, payload: id});
+                                            } else return false;
+                                            }}>Delete</Button>
                                         <Button onClick={() => dispatch({type: EDIT_Feed, payload: id})}>EDIT</Button>
                                     </>)
                                 }
