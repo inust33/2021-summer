@@ -52,7 +52,7 @@ const reducer = (state, action) => {
             const newFeeds = [...Feeds];
             const newFeed = newFeeds.find(feed => feed.id === Selected_Feed)
             newFeed.text = action.payload;
-            return {Feeds: newFeeds, Selected_Feed: -1}
+            return {...state, Feeds: newFeeds, Selected_Feed: -1}
         case CANCEL:
             return {...state, Selected_Feed: -1};
         default:
