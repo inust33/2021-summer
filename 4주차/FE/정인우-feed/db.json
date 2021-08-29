@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "React",
+      "password": "12345678"
+    },
+    {
+      "id": "Redux",
+      "password": "abcedfgh"
+    },
+    {
+      "id": "React-hooks",
+      "password": "qwerty"
+    }
+  ]
+}
