@@ -30,12 +30,13 @@ const SignUp = ({login, location}) => {
         });
         try{
             login({email, password});
+            alert('회원가입이 완료되었습니다');
         }catch(e){
             alert('cannot login. please go back to the login page to login');
         }
-        alert('회원가입이 완료되었습니다');
-        setIsRedirect(true);
-
+       if(user) {
+           setIsRedirect(true);
+       }
 
     }
 
