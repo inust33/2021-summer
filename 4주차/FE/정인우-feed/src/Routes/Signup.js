@@ -14,19 +14,7 @@ const SignUp = ({login, location}) => {
     const {state, dispatch} = useContext(FeedsContext);
     const {user, setUser} = useContext(UserContext);
     const [isRedirect, setIsRedirect] = useState(false);
-    useEffect(() => {
 
-        if(formState.isSubmitSuccessful){
-            const {email, password} = getValues();
-            try{
-                login({email, password});
-            }catch(e){
-                alert('cannot login. please go back to the login page to login');
-            }
-            setIsRedirect(true);
-            reset({email: "", password: ""});
-        }
-    }, [formState, reset]);
 
 
     const onSubmit = (data) => {
@@ -40,8 +28,15 @@ const SignUp = ({login, location}) => {
             type: ADD_User,
             payload: {email, password}
         });
-
+        try{
+            login({email, password});
+        }catch(e){
+            alert('cannot login. please go back to the login page to login');
+        }
         alert('회원가입이 완료되었습니다');
+        setIsRedirect(true);
+
+
     }
 
 
