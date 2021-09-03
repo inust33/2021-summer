@@ -54,7 +54,7 @@ const Login = ({login, location}) => {
             </header>
             <Container>
 
-                <Form onSubmit={handleSubmit(data => {
+                <Form nSubomit={handleSubmit(data => {
                         const {email, password} = data;
                         try {
                             login({email, password});

@@ -50,17 +50,15 @@ export default class DetailContainer extends React.Component {
   }
 
   render() {
-    const { result, isMovie, error, loading, activeTab } = this.state;
+
 
     return (
       <DetailPresenter
-        activeTab={activeTab}
+
         onClickMenu={this.onClickMenu.bind(this)}
-        result={result}
-        isMovie={isMovie}
-        error={error}
-        loading={loading}
-      ></DetailPresenter>
+        {...this.state}
+        {...this.props}
+      />
     );
   }
 }

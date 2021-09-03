@@ -44,14 +44,13 @@ const Feeds = ({authenticated, location}) => {
         }
     }
     const onSubmit = data => {
-        if (user) {
-            dispatch({type: ADD_Feed, payload: {text: data.feed, author: user.email}})
-
-        } else {
+       if(!user){
             if (window.confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
                 setIsRedirect(true);
             }
-            else return true;
+            else return false;
+        } else {
+            dispatch({type: ADD_Feed, payload: {text: data.feed, author: user.email}})
         }
     }
     return (

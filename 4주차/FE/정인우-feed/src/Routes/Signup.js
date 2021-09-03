@@ -40,6 +40,7 @@ const SignUp = ({login, location}) => {
             type: ADD_User,
             payload: {email, password}
         });
+
         alert('회원가입이 완료되었습니다');
     }
 

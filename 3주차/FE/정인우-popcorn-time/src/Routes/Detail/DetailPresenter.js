@@ -132,8 +132,10 @@ const DetailPresenter = ({
   loading,
   activeTab,
   onClickMenu,
+    ...rest
 }) => {
-  console.log(result);
+  console.log(props.location);
+
   return (
     <>
       {loading ? (
@@ -198,21 +200,25 @@ const DetailPresenter = ({
                   >
                     Production Companies
                   </Tab>
+
+                  <Tab isActive={activeTab===2} onClick={()=>onClickMenu(2)}>
+                    Production Countries
+                  </Tab>
                 </Tabs>
                 <TabContent activeTab={activeTab}>
                   {activeTab === 0
-                    ? result.videos.results &&
-                      result.videos.results.length > 0 && (
-                        <Video id={result.videos.results[0].key} />
-                      )
-                    : result.production_companies &&
+                    && (result.videos.results &&
+                      result.videos.results.length > 0 &&
+                        <Video id={result.videos.results[0].key} />)
+                  }
+                  {activeTab ===1 && (result.production_companies &&
                       result.production_companies.length > 0 &&
                       result.production_companies.map(
                         (company, index) =>
                           company.logo_path && (
                             <Company key={index} logo={company.logo_path} />
                           )
-                      )}
+                      ))}
                 </TabContent>
               </Menu>
             </Data>
